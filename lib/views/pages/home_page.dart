@@ -7,6 +7,9 @@ import 'package:portfolio/views/styles/constants.dart';
 import 'package:portfolio/views/styles/fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+
+import '../shared/widgets/footer.dart';
+
 class Home_Page extends StatefulWidget {
   const Home_Page({super.key});
 
@@ -33,7 +36,8 @@ Widget desktop() {
           ListView(children: [
             // Lottie.asset('assets/images/hicon.json'),
             Homm(),
-            TechStack()
+            TechStack(),
+            Footer(),
           ]),
           Positioned(
             child: Header(),
@@ -61,6 +65,7 @@ class Homm extends StatefulWidget {
 }
 
 class _HommState extends State<Homm> {
+  bool hasanimated = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -103,7 +108,7 @@ class _HommState extends State<Homm> {
                         .slide(begin: const Offset(-0.3, 0)),
                     AnimatedTextWidget(
                       textStyle: MyFonts.manrope(
-                        fontSize: 40,
+                        fontSize: 45,
                         fontWeight: FontWeight.w500,
                         color: MyColors.mediumGrey,
                       ),
@@ -112,10 +117,8 @@ class _HommState extends State<Homm> {
                         "ios apps",
                         "web apps",
                       ],
-                    )
-                        .animate()
-                        .fadeIn(delay: 2.seconds, duration: .60.seconds)
-                        .slide(begin: const Offset(-0.3, 0)),
+                    ).animate().fadeIn(delay: 2.seconds, duration: .60.seconds)
+                    // .slide(begin: const Offset(-0.3, 0)),
                   ],
                 ),
                 Text(
@@ -144,7 +147,6 @@ class _HommState extends State<Homm> {
               SizedBox(
                 width: 50,
               ),
- 
             ],
           )),
     );

@@ -61,7 +61,7 @@ class Header extends StatelessWidget {
             style: MyFonts.manrope(
               color: MyColors.lightGrey,
               fontSize: 20,
-              fontWeight: FontWeight.w800,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),

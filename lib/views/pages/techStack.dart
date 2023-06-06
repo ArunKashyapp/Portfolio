@@ -25,7 +25,7 @@ class _TechStackState extends State<TechStack> {
               top: 2,
             ),
             width: double.infinity,
-            height: ScreenSize.screenHeight * 0.5 + 340,
+            height: ScreenSize.screenHeight * 0.5 + 250,
             color: Colors.black,
             child: Column(
               children: [
@@ -52,7 +52,7 @@ class _TechStackState extends State<TechStack> {
                           "Flutter",
                           [
                             "A Cross-platform UI Toolkit for Building Beautiful, Native-Performance Apps for iOS, Android, Web, and Desktop",
-                            '"Intermediate level"'
+                            'Advanced level'
                           ],
                           "https://flutter.dev",
                           logo: SizedBox(
