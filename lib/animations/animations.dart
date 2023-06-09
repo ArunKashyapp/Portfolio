@@ -280,7 +280,11 @@ class HoverText extends StatefulWidget {
   final FontWeight weight;
 
   const HoverText(
-      {super.key, required this.text, required this.size, required this.color,required this.weight});
+      {super.key,
+      required this.text,
+      required this.size,
+      required this.color,
+      required this.weight});
   @override
   _HoverTextState createState() => _HoverTextState(text, size, color, weight);
 }
@@ -314,9 +318,8 @@ class _HoverTextState extends State<HoverText> {
             fontWeight: weight,
             shadows: [
               Shadow(
-                offset:
-                    Offset(_cursorPosition.dx / 10, _cursorPosition.dy / 10),
-                blurRadius: 10,
+                offset: Offset(_cursorPosition.dx / 10, _cursorPosition.dy / 5),
+                blurRadius: 2,
                 color: MyColors.lightGrey,
               ),
             ],

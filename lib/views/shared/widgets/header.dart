@@ -45,7 +45,7 @@ class Header extends StatelessWidget {
   Widget buildLogoRow() {
     return Row(
       children: [
-        SizedBox(width: 100),
+        SizedBox(width: 90),
         Align(
           alignment: Alignment.centerLeft,
           child: Icon(

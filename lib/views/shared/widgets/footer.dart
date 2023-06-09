@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/pages/contact_page.dart';
 // import 'package:portfolio/views/styles/constants.dart';
 
 import '../../styles/colors.dart';
-
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -28,6 +28,7 @@ class Footer extends StatelessWidget {
               ),
             ),
           ),
+          Contact()
         ],
       ),
     );

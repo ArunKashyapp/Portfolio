@@ -32,35 +32,32 @@ class _TexButtonState extends State<TexButton> {
         ),
       ),
       onPressed: widget.onPressed as void Function()?,
-      child:  Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: MouseRegion(
-          onEnter: (_) {
-            setState(() {
-              isHovered = true;
-            });
-          },
-          onExit: (_) {
-            setState(() {
-              isHovered = false;
-            });
-          },
-          child: Container(
-            margin: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: isHovered
-                ? widget.icon
-                : Text(
-                    widget.title,
-                    style: MyFonts.manrope(
-                      color: MyColors.lightGrey,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
+      child: MouseRegion(
+        onEnter: (_) {
+          setState(() {
+            isHovered = true;
+          });
+        },
+        onExit: (_) {
+          setState(() {
+            isHovered = false;
+          });
+        },
+        child: Container(
+          margin: EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
           ),
+          child: isHovered
+              ? widget.icon
+              : Text(
+                  widget.title,
+                  style: MyFonts.manrope(
+                    color: MyColors.lightGrey,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
         ),
       ),
     );
