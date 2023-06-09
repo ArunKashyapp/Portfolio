@@ -55,10 +55,7 @@ class _TechStackState extends State<TechStack> {
                             'Advanced level'
                           ],
                           "https://flutter.dev",
-                          logo: SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: Logo(Logos.flutter))),
+                          logo: Logo(Logos.flutter)),
                       clip(
                           "Firebase",
                           [
@@ -66,12 +63,9 @@ class _TechStackState extends State<TechStack> {
                             "Intermediate level"
                           ],
                           "https://firebase.google.com",
-                          logo: SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: Logo(
-                                Logos.firebase,
-                              ))),
+                          logo: Logo(
+                            Logos.firebase,
+                          )),
                       clip(
                           "MySQl",
                           [
@@ -79,10 +73,7 @@ class _TechStackState extends State<TechStack> {
                             "Intermediate level"
                           ],
                           "https://www.mysql.com",
-                          logo: SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: Image.asset('assets/images/mysql.png'))),
+                          logo: Image.asset('assets/images/mysql.png')),
                       clip(
                           "Dart",
                           [
@@ -90,13 +81,9 @@ class _TechStackState extends State<TechStack> {
                             "Intermediate level"
                           ],
                           "https://dart.dev",
-                          logo: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: Image.asset(
-                              'assets/images/Dart.png',
-                              fit: BoxFit.fill,
-                            ),
+                          logo: Image.asset(
+                            'assets/images/Dart.png',
+                            fit: BoxFit.fill,
                           )),
                       clip(
                           "Figma",
@@ -105,8 +92,7 @@ class _TechStackState extends State<TechStack> {
                             "Intermediate level"
                           ],
                           "https://www.figma.com",
-                          logo: SizedBox(
-                              height: 50, width: 50, child: Logo(Logos.figma))),
+                          logo: Logo(Logos.figma)),
                     ],
                   ),
                 ),
@@ -120,13 +106,10 @@ class _TechStackState extends State<TechStack> {
                           "Begineer"
                         ],
                         "https://github.com/ArunKashyapp",
-                        logo: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: Logo(
-                              Logos.github,
-                              colorFilter: ColorFilter.linearToSrgbGamma(),
-                            ))),
+                        logo: Logo(
+                          Logos.github,
+                          colorFilter: ColorFilter.linearToSrgbGamma(),
+                        )),
                     clip(
                         "Python",
                         [
@@ -134,12 +117,9 @@ class _TechStackState extends State<TechStack> {
                           "Intermediate level"
                         ],
                         "https://www.python.org",
-                        logo: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: Logo(
-                              Logos.python,
-                            ))),
+                        logo: Logo(
+                          Logos.python,
+                        )),
                   ],
                 )
               ],
@@ -158,7 +138,11 @@ Widget clip(heading, subheading, url, {Widget? logo}) {
       children: [
         const SizedBox(height: 10),
         if (logo != null) ...[
-          logo,
+          SizedBox(
+            child: logo,
+            height: 50,
+            width: 50,
+          ),
           const SizedBox(height: 5),
         ],
         GestureDetector(

@@ -133,12 +133,22 @@ class _HommState extends State<Homm> {
                   height: 20,
                 ),
                 SizedBox(
-                    width: 200,
-                    height: 40, // Set the desired width here
+                    width: hasanimated ? 203 : 200,
+                    height: hasanimated ? 42 : 40, // Set the desired width here
                     child: ElevatedButton(
+                      onHover: (value) {
+                        setState(() {
+                          hasanimated = !hasanimated;
+                        });
+                      },
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(MyColors.lighterGrey),
+                        elevation: MaterialStateProperty.all(15),
+                        visualDensity: VisualDensity.compact,
+                        shadowColor:
+                            MaterialStatePropertyAll(MyColors.lightGrey),
+                        backgroundColor: MaterialStateProperty.all(hasanimated
+                            ? MyColors.evenDarkerGrey
+                            : MyColors.darkerGrey),
                       ),
                       onPressed: () {},
                       child: Text('TEXT ME'),

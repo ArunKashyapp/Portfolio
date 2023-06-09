@@ -1,27 +1,66 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/views/styles/colors.dart';
-import 'package:portfolio/views/styles/fonts.dart';
 
-// ignore: must_be_immutable
+import '../../styles/colors.dart';
+import '../../styles/fonts.dart';
 
-class TexButton extends StatelessWidget {
+class TexButton extends StatefulWidget {
   final String title;
   final Function onPressed;
+  final Icon icon;
 
-  TexButton({Key? key, required this.title, required this.onPressed})
-      : super(key: key);
+  TexButton({
+    Key? key,
+    required this.title,
+    required this.onPressed,
+    required this.icon,
+  }) : super(key: key);
+
+  @override
+  State<TexButton> createState() => _TexButtonState();
+}
+
+class _TexButtonState extends State<TexButton> {
+  bool isHovered = false;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed as void Function()?,
-      child: Container(
-        child: Text(
-          title,
-          style: MyFonts.manrope(
-              color: MyColors.lightGrey,
-              fontSize: 15,
-              fontWeight: FontWeight.w300),
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all<Color?>(
+          Colors.transparent,
+        ),
+      ),
+      onPressed: widget.onPressed as void Function()?,
+      child:  Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: MouseRegion(
+          onEnter: (_) {
+            setState(() {
+              isHovered = true;
+            });
+          },
+          onExit: (_) {
+            setState(() {
+              isHovered = false;
+            });
+          },
+          child: Container(
+            margin: EdgeInsets.all(2),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: isHovered
+                ? widget.icon
+                : Text(
+                    widget.title,
+                    style: MyFonts.manrope(
+                      color: MyColors.lightGrey,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/pages/contact_page.dart';
 import 'package:portfolio/views/styles/colors.dart';
 
 import 'views/pages/home_page.dart';
@@ -13,9 +14,8 @@ class PortfolioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: MyColors.darkGrey2),
-      home: Home_Page(),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(scaffoldBackgroundColor: MyColors.darkGrey2),
+        home: Home_Page());
   }
 }

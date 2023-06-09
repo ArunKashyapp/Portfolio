@@ -14,6 +14,7 @@ class MyFonts {
     TextDecoration? decoration,
     TextDecorationStyle? decorationStyle,
     double? decorationThickness,
+  
     // Corrected property name
 
   }) {
@@ -27,6 +28,7 @@ class MyFonts {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+     
      // Corrected property name
     );
   }

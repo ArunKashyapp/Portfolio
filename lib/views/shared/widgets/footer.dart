@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // import 'package:portfolio/views/styles/constants.dart';
 
 import '../../styles/colors.dart';
-import 'button.dart';
+
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -28,37 +28,33 @@ class Footer extends StatelessWidget {
               ),
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [],
-          ),
         ],
       ),
     );
   }
 }
 
-Widget buildButtonRow() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      TexButton(
-        title: 'Home',
-        onPressed: () {},
-      ),
-      SizedBox(width: 20),
-      TexButton(
-        title: 'Projects',
-        onPressed: () {},
-      ),
-      SizedBox(width: 20),
-      Padding(
-        padding: const EdgeInsets.only(right: 200),
-        child: TexButton(
-          title: 'Contact',
-          onPressed: () {},
-        ),
-      ),
-    ],
-  );
-}
+// Widget buildButtonRow() {
+//   return Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       TexButton(
+//         title: 'Home',
+//         onPressed: () {},
+//       ),
+//       SizedBox(width: 20),
+//       TexButton(
+//         title: 'Projects',
+//         onPressed: () {},
+//       ),
+//       SizedBox(width: 20),
+//       Padding(
+//         padding: const EdgeInsets.only(right: 200),
+//         child: TexButton(
+//           title: 'Contact',
+//           onPressed: () {},
+//         ),
+//       ),
+//     ],
+//   );
+// }

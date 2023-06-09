@@ -74,18 +74,30 @@ class Header extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TexButton(
+          icon: Icon(
+            Icons.home,
+            color: MyColors.lightGrey,
+          ),
           title: 'Home',
           onPressed: () {},
         ),
-        SizedBox(width: 20),
+        SizedBox(width: 30),
         TexButton(
+          icon: Icon(
+            Icons.construction,
+            color: MyColors.lightGrey,
+          ),
           title: 'Projects',
           onPressed: () {},
         ),
-        SizedBox(width: 20),
+        SizedBox(width: 30),
         Padding(
           padding: const EdgeInsets.only(right: 200),
           child: TexButton(
+            icon: Icon(
+              Icons.call,
+              color: MyColors.lightGrey,
+            ),
             title: 'Contact',
             onPressed: () {},
           ),

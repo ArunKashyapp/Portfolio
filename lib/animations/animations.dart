@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:portfolio/views/styles/colors.dart';
+import 'package:portfolio/views/styles/fonts.dart';
 // Import the Flutter Icons package
 
 class AnimatedTextWidget extends StatefulWidget {
@@ -75,7 +76,7 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
           opacity: _animation.value,
           child: Wrap(
             children: [
-              Text( 
+              Text(
                 _currentText,
                 textAlign: TextAlign.center,
                 style: textStyle,
@@ -146,7 +147,6 @@ Widget getIcon(String value) {
     return SizedBox.shrink(); // or return null;
   }
 }
-
 
 // Import the Flutter Icons package
 
@@ -242,3 +242,87 @@ Widget getIcon(String value) {
 //     );
 //   }
 // }
+class HoverAnimation extends StatefulWidget {
+  final bool ishovered;
+  final Widget YourWidget;
+  HoverAnimation(
+      {super.key, required this.YourWidget, required this.ishovered});
+
+  @override
+  State<HoverAnimation> createState() => _HoverAnimationState();
+}
+
+class _HoverAnimationState extends State<HoverAnimation> {
+  late bool ishovered;
+  late Widget YourWidget;
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          ishovered = true;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          ishovered = false;
+        });
+      },
+      child: YourWidget,
+    );
+  }
+}
+
+class HoverText extends StatefulWidget {
+  final String text;
+  final double size;
+  final Color color;
+  final FontWeight weight;
+
+  const HoverText(
+      {super.key, required this.text, required this.size, required this.color,required this.weight});
+  @override
+  _HoverTextState createState() => _HoverTextState(text, size, color, weight);
+}
+
+class _HoverTextState extends State<HoverText> {
+  Offset _cursorPosition = Offset(0, 0);
+  final String text;
+  final double size;
+  final Color color;
+  final FontWeight weight;
+
+  _HoverTextState(this.text, this.size, this.color, this.weight);
+
+  void _updateCursorPosition(PointerEvent event) {
+    setState(() {
+      _cursorPosition = event.localPosition;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onHover: (event) => _updateCursorPosition(event),
+      child: Listener(
+        onPointerMove: (event) => _updateCursorPosition(event),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: color,
+            fontSize: size,
+            fontWeight: weight,
+            shadows: [
+              Shadow(
+                offset:
+                    Offset(_cursorPosition.dx / 10, _cursorPosition.dy / 10),
+                blurRadius: 10,
+                color: MyColors.lightGrey,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
