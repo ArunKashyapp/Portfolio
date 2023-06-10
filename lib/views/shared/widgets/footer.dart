@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/views/pages/contact_page.dart';
+import 'package:portfolio/views/styles/constants.dart';
 // import 'package:portfolio/views/styles/constants.dart';
 
 import '../../styles/colors.dart';
@@ -28,34 +29,11 @@ class Footer extends StatelessWidget {
               ),
             ),
           ),
-          Contact()
+          Contact(),
         ],
       ),
     );
   }
 }
 
-// Widget buildButtonRow() {
-//   return Row(
-//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//     children: [
-//       TexButton(
-//         title: 'Home',
-//         onPressed: () {},
-//       ),
-//       SizedBox(width: 20),
-//       TexButton(
-//         title: 'Projects',
-//         onPressed: () {},
-//       ),
-//       SizedBox(width: 20),
-//       Padding(
-//         padding: const EdgeInsets.only(right: 200),
-//         child: TexButton(
-//           title: 'Contact',
-//           onPressed: () {},
-//         ),
-//       ),
-//     ],
-//   );
-// }
+//

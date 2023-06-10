@@ -172,6 +172,7 @@ Widget clip(heading, subheading, url, {Widget? logo}) {
         // )
 
         AnimatedTextWidget(
+          onpressed: (){},
           textStyle: MyFonts.manrope(
             fontSize: 16,
             fontWeight: FontWeight.w200,

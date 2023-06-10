@@ -107,6 +107,7 @@ class _HommState extends State<Homm> {
                         .fadeIn(delay: 1.seconds, duration: .60.seconds)
                         .slide(begin: const Offset(-0.3, 0)),
                     AnimatedTextWidget(
+                      onpressed: (){},
                       textStyle: MyFonts.manrope(
                         fontSize: 45,
                         fontWeight: FontWeight.w500,

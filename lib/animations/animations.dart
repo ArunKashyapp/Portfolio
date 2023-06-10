@@ -10,22 +10,25 @@ import 'package:portfolio/views/styles/fonts.dart';
 class AnimatedTextWidget extends StatefulWidget {
   final List<String> texts;
   final TextStyle textStyle;
+  final Function onpressed;
 
   const AnimatedTextWidget({
     Key? key,
     required this.texts,
     required this.textStyle,
+    required this.onpressed,
   }) : super(key: key);
 
   @override
   _AnimatedTextWidgetState createState() =>
-      _AnimatedTextWidgetState(texts, textStyle);
+      _AnimatedTextWidgetState(texts, textStyle, onpressed);
 }
 
 class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
     with SingleTickerProviderStateMixin {
   final List<String> texts;
   final TextStyle textStyle;
+  Function onpressed;
 
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -33,7 +36,7 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
   String _currentText = "";
   late Timer _timer;
 
-  _AnimatedTextWidgetState(this.texts, this.textStyle);
+  _AnimatedTextWidgetState(this.texts, this.textStyle,this.onpressed);
 
   @override
   void initState() {
@@ -76,10 +79,13 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
           opacity: _animation.value,
           child: Wrap(
             children: [
-              Text(
-                _currentText,
-                textAlign: TextAlign.center,
-                style: textStyle,
+              TextButton(
+                onPressed: widget.onpressed as void Function()?,
+                child: Text(
+                  _currentText,
+                  textAlign: TextAlign.center,
+                  style: textStyle,
+                ),
               ),
               getIcon(_currentText),
             ],
