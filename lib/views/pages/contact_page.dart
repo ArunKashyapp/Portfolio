@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/animations/animations.dart';
 import 'package:portfolio/views/shared/widgets/button.dart';
 import 'package:portfolio/views/styles/colors.dart';
-import 'package:portfolio/views/styles/constants.dart';
 import 'package:portfolio/views/styles/fonts.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -38,8 +37,7 @@ class _ContactState extends State<Contact> {
             SizedBox(
               height: 10,
             ),
-            Container(
-              width: ScreenSize.screenWidth,
+            SizedBox(
               child: TextFormField(
                 onTapOutside: (event) {
                   formcontroller.clear();
@@ -50,20 +48,20 @@ class _ContactState extends State<Contact> {
                     suffix: TexButton(
                         title: 'Send',
                         onPressed: () {},
-                        icon: Icon(
+                        icon:const  Icon(
                           Icons.play_arrow,
                           color: MyColors.lightGrey,
                         )),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: MyColors.lightGrey)),
                     label: Text(
                       "Send a message",
                       style: MyFonts.manrope(
                           fontSize: 10, color: MyColors.lightGrey),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder:const OutlineInputBorder(
                         borderSide: BorderSide(color: MyColors.white)),
-                    prefixIcon: Icon(
+                    prefixIcon:const  Icon(
                       Icons.chat,
                       color: MyColors.lightGrey,
                     )),
@@ -73,16 +71,16 @@ class _ContactState extends State<Contact> {
               ),
             ),
             Text(
-              "Social Links",
+              "Social links",
               style: MyFonts.manrope(
                   color: MyColors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w300),
             ),
-            SizedBox(
+          const  SizedBox(
               height: 10,
             ),
-            Links(
+            links(
                 Logo(
                   Logos.linkedin,
                   size: 20,
@@ -90,16 +88,16 @@ class _ContactState extends State<Contact> {
                 'https://www.linkedin.com/in/arunkashyapp/',
                 "Linkedin",
                 'https://www.linkedin.com/in/arunkashyapp/'),
-            Links(
+            links(
                 Logo(
                   Logos.github,
                   size: 20,
-                  colorFilter: ColorFilter.linearToSrgbGamma(),
+                  colorFilter:const  ColorFilter.linearToSrgbGamma(),
                 ),
                 'https://github.com/ArunKashyapp',
                 "Github",
                 'https://github.com/ArunKashyapp'),
-            Links(
+            links(
                 Logo(
                   Logos.instagram,
                   size: 20,
@@ -107,7 +105,7 @@ class _ContactState extends State<Contact> {
                 'https://github.com/ArunKashyapp',
                 "Instagram",
                 'https://github.com/ArunKashyapp'),
-            SizedBox(
+          const  SizedBox(
               height: 90,
             ),
             Row(
@@ -115,8 +113,8 @@ class _ContactState extends State<Contact> {
               children: [
                 Wrap(
                   children: [
-                    Icon(
-                      Icons.copyright,
+                   const Icon(
+                     Icons.copyright,
                       color: MyColors.lightGrey,
                       size: 17,
                     ),
@@ -153,13 +151,15 @@ class _ContactState extends State<Contact> {
   }
 }
 
-Widget Links(logo, url, isttext, sectext) {
+Widget links(logo, url, isttext, sectext) {
   return Wrap(
     children: [
       logo,
       AnimatedTextWidget(
           onpressed: () async {
+            // ignore: deprecated_member_use
             if (await canLaunch(url)) {
+              // ignore: deprecated_member_use
               await launch(url);
             } else {
               throw 'Could not launch ';

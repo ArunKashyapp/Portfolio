@@ -29,7 +29,7 @@ class _TechStackState extends State<TechStack> {
             color: Colors.black,
             child: Column(
               children: [
-                SizedBox(
+               const  SizedBox(
                   height: 20,
                 ),
                 Text(
@@ -40,7 +40,7 @@ class _TechStackState extends State<TechStack> {
                       color: MyColors.veryLightGrey,
                       fontWeight: FontWeight.w400),
                 ),
-                SizedBox(
+             const   SizedBox(
                   height: 20,
                 ),
                 SingleChildScrollView(
@@ -111,6 +111,16 @@ class _TechStackState extends State<TechStack> {
                           colorFilter: ColorFilter.linearToSrgbGamma(),
                         )),
                     clip(
+                        "Java",
+                        [
+                          "Write once, run anywhere. A versatile and platform-independent programming language for web, mobile, and enterprise applications.",
+                          "Intermediate level"
+                        ],
+                        "https://www.java.org",
+                        logo:Logo(
+                          Logos.java,
+                        )),
+                    clip(
                         "Python",
                         [
                           "A Versatile and Powerful Programming Language for Rapid Development.",
@@ -119,6 +129,16 @@ class _TechStackState extends State<TechStack> {
                         "https://www.python.org",
                         logo: Logo(
                           Logos.python,
+                        )),
+                    clip(
+                        "C/C++",
+                        [
+                          "A high-performance language for systems programming, game development, and resource-intensive applications.",
+                          "Intermediate level"
+                        ],
+                        "https://www.java.org",
+                        logo: Logo(
+                          Logos.cplusplus,
                         )),
                   ],
                 )
@@ -172,7 +192,7 @@ Widget clip(heading, subheading, url, {Widget? logo}) {
         // )
 
         AnimatedTextWidget(
-          onpressed: (){},
+          onpressed: () {},
           textStyle: MyFonts.manrope(
             fontSize: 16,
             fontWeight: FontWeight.w200,

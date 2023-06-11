@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/views/pages/contact_page.dart';
-import 'package:portfolio/views/styles/constants.dart';
 // import 'package:portfolio/views/styles/constants.dart';
 
 import '../../styles/colors.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/views/pages/contact_page.dart';
 import 'package:portfolio/views/styles/colors.dart';
 
 import 'views/pages/home_page.dart';

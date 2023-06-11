@@ -1,10 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:portfolio/views/styles/colors.dart';
-import 'package:portfolio/views/styles/fonts.dart';
 // Import the Flutter Icons package
 
 class AnimatedTextWidget extends StatefulWidget {
@@ -96,61 +93,61 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
   }
 }
 
-class lotttie extends StatefulWidget {
-  const lotttie({Key? key}) : super(key: key);
+// class lotttie extends StatefulWidget {
+//   const lotttie({Key? key}) : super(key: key);
 
-  @override
-  State<lotttie> createState() => _lotttieState();
-}
+//   @override
+//   State<lotttie> createState() => _lotttieState();
+// }
 
-class _lotttieState extends State<lotttie> {
-  bool isHovered = false;
+// class _lotttieState extends State<lotttie> {
+//   bool isHovered = false;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: MouseRegion(
-          onEnter: (_) {
-            setState(() {
-              isHovered = true;
-            });
-          },
-          onExit: (_) {
-            setState(() {
-              isHovered = false;
-            });
-          },
-          child: Container(
-            width: 200,
-            height: 200,
-            color: Colors.grey,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              decoration: BoxDecoration(
-                color: isHovered ? Colors.black : Colors.transparent,
-              ),
-              child: isHovered
-                  ? Lottie.asset('assets/images/hicon.json')
-                  : Container(),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Center(
+//         child: MouseRegion(
+//           onEnter: (_) {
+//             setState(() {
+//               isHovered = true;
+//             });
+//           },
+//           onExit: (_) {
+//             setState(() {
+//               isHovered = false;
+//             });
+//           },
+//           child: Container(
+//             width: 200,
+//             height: 200,
+//             color: Colors.grey,
+//             child: AnimatedContainer(
+//               duration: const Duration(milliseconds: 200),
+//               decoration: BoxDecoration(
+//                 color: isHovered ? Colors.black : Colors.transparent,
+//               ),
+//               child: isHovered
+//                   ? Lottie.asset('assets/images/hicon.json')
+//                   : Container(),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 Widget getIcon(String value) {
   if (value == "android apps") {
-    return Icon(Icons.android, color: MyColors.lighterGrey, size: 30);
+    return const Icon(Icons.android, color: MyColors.lighterGrey, size: 30);
   } else if (value == "ios apps") {
-    return Icon(Icons.apple, color: MyColors.lighterGrey, size: 30);
+    return const Icon(Icons.apple, color: MyColors.lighterGrey, size: 30);
   } else if (value == "web apps") {
-    return Icon(Icons.desktop_windows_rounded,
+    return const  Icon(Icons.desktop_windows_rounded,
         color: MyColors.lighterGrey, size: 30);
   } else {
-    return SizedBox.shrink(); // or return null;
+     return SizedBox.shrink(); // or return null;
   }
 }
 
@@ -248,90 +245,90 @@ Widget getIcon(String value) {
 //     );
 //   }
 // }
-class HoverAnimation extends StatefulWidget {
-  final bool ishovered;
-  final Widget YourWidget;
-  HoverAnimation(
-      {super.key, required this.YourWidget, required this.ishovered});
+// class HoverAnimation extends StatefulWidget {
+//   final bool ishovered;
+//   final Widget YourWidget;
+//   HoverAnimation(
+//       {super.key, required this.YourWidget, required this.ishovered});
 
-  @override
-  State<HoverAnimation> createState() => _HoverAnimationState();
-}
+//   @override
+//   State<HoverAnimation> createState() => _HoverAnimationState();
+// }
 
-class _HoverAnimationState extends State<HoverAnimation> {
-  late bool ishovered;
-  late Widget YourWidget;
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          ishovered = true;
-        });
-      },
-      onExit: (_) {
-        setState(() {
-          ishovered = false;
-        });
-      },
-      child: YourWidget,
-    );
-  }
-}
+// class _HoverAnimationState extends State<HoverAnimation> {
+//   late bool ishovered;
+//   late Widget YourWidget;
+//   @override
+//   Widget build(BuildContext context) {
+//     return MouseRegion(
+//       onEnter: (_) {
+//         setState(() {
+//           ishovered = true;
+//         });
+//       },
+//       onExit: (_) {
+//         setState(() {
+//           ishovered = false;
+//         });
+//       },
+//       child: YourWidget,
+//     );
+//   }
+// }
 
-class HoverText extends StatefulWidget {
-  final String text;
-  final double size;
-  final Color color;
-  final FontWeight weight;
+// class HoverText extends StatefulWidget {
+//   final String text;
+//   final double size;
+//   final Color color;
+//   final FontWeight weight;
 
-  const HoverText(
-      {super.key,
-      required this.text,
-      required this.size,
-      required this.color,
-      required this.weight});
-  @override
-  _HoverTextState createState() => _HoverTextState(text, size, color, weight);
-}
+//   const HoverText(
+//       {super.key,
+//       required this.text,
+//       required this.size,
+//       required this.color,
+//       required this.weight});
+//   @override
+//   _HoverTextState createState() => _HoverTextState(text, size, color, weight);
+// }
 
-class _HoverTextState extends State<HoverText> {
-  Offset _cursorPosition = Offset(0, 0);
-  final String text;
-  final double size;
-  final Color color;
-  final FontWeight weight;
+// class _HoverTextState extends State<HoverText> {
+//   Offset _cursorPosition = Offset(0, 0);
+//   final String text;
+//   final double size;
+//   final Color color;
+//   final FontWeight weight;
 
-  _HoverTextState(this.text, this.size, this.color, this.weight);
+//   _HoverTextState(this.text, this.size, this.color, this.weight);
 
-  void _updateCursorPosition(PointerEvent event) {
-    setState(() {
-      _cursorPosition = event.localPosition;
-    });
-  }
+//   void _updateCursorPosition(PointerEvent event) {
+//     setState(() {
+//       _cursorPosition = event.localPosition;
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onHover: (event) => _updateCursorPosition(event),
-      child: Listener(
-        onPointerMove: (event) => _updateCursorPosition(event),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: color,
-            fontSize: size,
-            fontWeight: weight,
-            shadows: [
-              Shadow(
-                offset: Offset(_cursorPosition.dx / 10, _cursorPosition.dy / 5),
-                blurRadius: 2,
-                color: MyColors.lightGrey,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MouseRegion(
+//       onHover: (event) => _updateCursorPosition(event),
+//       child: Listener(
+//         onPointerMove: (event) => _updateCursorPosition(event),
+//         child: Text(
+//           text,
+//           style: TextStyle(
+//             color: color,
+//             fontSize: size,
+//             fontWeight: weight,
+//             shadows: [
+//               Shadow(
+//                 offset: Offset(_cursorPosition.dx / 10, _cursorPosition.dy / 5),
+//                 blurRadius: 2,
+//                 color: MyColors.lightGrey,
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
