@@ -1,254 +1,129 @@
 import 'package:flutter/material.dart';
+
 import 'package:portfolio/animations/animations.dart';
-import 'package:portfolio/views/pages/techStack.dart';
-import 'package:portfolio/views/shared/widgets/header.dart';
 import 'package:portfolio/views/styles/colors.dart';
 import 'package:portfolio/views/styles/constants.dart';
 import 'package:portfolio/views/styles/fonts.dart';
-import 'package:responsive_builder/responsive_builder.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
-import '../shared/widgets/footer.dart';
+class Home_Page extends StatelessWidget {
+  final void Function(int) onTabSelected;
+  const Home_Page({
+    Key? key,
+    required this.onTabSelected,
+  }) : super(key: key);
 
-class Home_Page extends StatefulWidget {
-  const Home_Page({super.key});
-
-  @override
-  State<Home_Page> createState() => _Home_PageState();
-}
-
-class _Home_PageState extends State<Home_Page> {
-  @override
-  Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: mobile(),
-      desktop: desktop(),
-      tablet: tablet(),
-    );
-  }
-}
-
-Widget desktop() {
-  return SafeArea(
-    child: Scaffold(
-      body: Stack(
-        children: [
-          ListView(children: [
-            // Lottie.asset('assets/images/hicon.json'),
-            Homm(),
-            TechStack(),
-            Footer(),
-          ]),
-          Positioned(
-            child: Header(),
-            top: 0,
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget mobile() {
-  return Scaffold();
-}
-
-Widget tablet() {
-  return Scaffold();
-}
-
-class Homm extends StatefulWidget {
-  const Homm({super.key});
-
-  @override
-  State<Homm> createState() => _HommState();
-}
-
-class _HommState extends State<Homm> {
-  bool hasanimated = false;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: ScreenSize.screenWidth,
-      height: ScreenSize.screenHeight,
+      height: ScreenSize.screenHeight - 100,
       decoration: BoxDecoration(
-          image: DecorationImage(
-              isAntiAlias: true,
-              fit: BoxFit.fill,
-              alignment: Alignment.topLeft,
-              image: AssetImage('assets/images/r.png'))),
+        image: DecorationImage(
+          isAntiAlias: true,
+          fit: BoxFit.fill,
+          alignment: Alignment.topLeft,
+          image: AssetImage('assets/images/r.png'),
+        ),
+      ),
       child: Padding(
-          padding: const EdgeInsets.only(top: 190, left: 90),
+        padding: const EdgeInsets.only(top: 150, left: 90),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  "Hi, I'm Your Arun,\na passionate Flutter developer\non a journey to build",
-                  style: MyFonts.manrope(
-                    fontSize: 45,
-                    fontWeight: FontWeight.w400,
-                    color: MyColors.lightGrey,
-                  ),
-                )
-                    .animate()
-                    .fadeIn(delay: 1.seconds, duration: .60.seconds)
-                    .slide(begin: const Offset(-0.3, 0)),
-                Wrap(
-                  children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Wrap(children: [
                     Text(
-                      "beautiful,complex and functional ",
+                      "Hi, I'm ",
+                      overflow: TextOverflow.visible,
                       style: MyFonts.manrope(
                         fontSize: 45,
                         fontWeight: FontWeight.w400,
                         color: MyColors.lightGrey,
                       ),
-                    )
-                        .animate()
-                        .fadeIn(delay: 1.seconds, duration: .60.seconds)
-                        .slide(begin: const Offset(-0.3, 0)),
-                    AnimatedTextWidget(
-                      onpressed: () {},
-                      textStyle: MyFonts.manrope(
+                    ),
+                    Text(
+                      "Arun",
+                      overflow: TextOverflow.visible,
+                      style: MyFonts.manrope(
                         fontSize: 45,
-                        fontWeight: FontWeight.w500,
-                        color: MyColors.mediumGrey,
+                        fontWeight: FontWeight.w400,
+                        color: MyColors.orange,
                       ),
-                      texts: [
-                        "android apps",
-                        "ios apps",
-                        "web apps",
-                      ],
-                    ).animate().fadeIn(delay: 2.seconds, duration: .60.seconds)
-                    // .slide(begin: const Offset(-0.3, 0)),
-                  ],
-                ),
-                Text(
-                  "Empowering businesses to achieve their goals through innovative\nand user-centered digital solutions.",
-                  style: MyFonts.manrope(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w200,
-                    color: MyColors.mediumGrey,
+                    ),
+                  ]),
+                  Text(
+                    "a passionate Flutter developer\non a journey to build",
+                    overflow: TextOverflow.visible,
+                    style: MyFonts.manrope(
+                      fontSize: 45,
+                      fontWeight: FontWeight.w400,
+                      color: MyColors.lightGrey,
+                    ),
                   ),
-                ).animate().flipV(delay: 3.seconds, duration: .80.seconds),
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                    width: hasanimated ? 203 : 200,
-                    height: hasanimated ? 42 : 40, // Set the desired width here
-                    child: ElevatedButton(
-                      onHover: (value) {
-                        setState(() {
-                          hasanimated = !hasanimated;
-                        });
-                      },
-                      style: ButtonStyle(
-                        elevation: MaterialStateProperty.all(15),
-                        visualDensity: VisualDensity.compact,
-                        shadowColor:
-                            MaterialStatePropertyAll(MyColors.lightGrey),
-                        backgroundColor: MaterialStateProperty.all(hasanimated
-                            ? MyColors.evenDarkerGrey
-                            : MyColors.darkerGrey),
+                  // .animate(controller: _controller)
+                  // .fadeIn(delay: 1.seconds, duration: .60.seconds)
+                  // .slide(begin: const Offset(-0.3, 0)),
+                  Wrap(
+                    children: [
+                      Text(
+                        "beautiful,complex and functional",
+                        style: MyFonts.manrope(
+                          fontSize: 45,
+                          fontWeight: FontWeight.w400,
+                          color: MyColors.lightGrey,
+                        ),
                       ),
-                      onPressed: () {},
-                      child: Text('TEXT ME'),
-                    ).animate().flipV(delay: 3.seconds, duration: .40.seconds)),
-              ]),
-              SizedBox(
-                width: 50,
+                      // .animate()
+                      // .fadeIn(delay: 1.seconds, duration: .60.seconds)
+                      // .slide(begin: const Offset(-0.3, 0)),
+                      AnimatedTextWidget(
+                        onpressed: () {},
+                        textStyle: MyFonts.manrope(
+                          fontSize: 45,
+                          fontWeight: FontWeight.w500,
+                          color: MyColors.orange,
+                        ),
+                        texts: [
+                          "android apps",
+                          "ios apps",
+                          "web apps",
+                        ],
+                      )
+                      // .animate().fadeIn(delay: 2.seconds, duration: .60.seconds)
+                      // .slide(begin: const Offset(-0.3, 0)),
+                    ],
+                  ),
+                  Text(
+                    "Empowering businesses to achieve their goals through innovative\nand user-centered digital solutions.",
+                    overflow: TextOverflow.clip,
+                    style: MyFonts.manrope(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w200,
+                      color: MyColors.mediumGrey,
+                    ),
+                  ),
+                  // .animate().flipV(delay: 3.seconds, duration: .80.seconds),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      onTabSelected(3);
+                    },
+                    child: const Text(
+                      'TEXT ME',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                ],
               ),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
-
-// class Home extends StatelessWidget {
-//   const Home({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: ScreenSize.screenHeight,
-//       decoration: BoxDecoration(
-//           image: DecorationImage(
-//               isAntiAlias: true,
-//               fit: BoxFit.fill,
-//               alignment: Alignment.topLeft,
-//               image: AssetImage('assets/images/r.png'))),
-//       child: Padding(
-//         padding: const EdgeInsets.only(left: 100, top: 200),
-//         child: Column(
-//           children: [
-//             Align(
-//               alignment: Alignment.topLeft,
-//               child: Wrap(
-//                 children: [
-//                   Text(
-//                     "Hi, I'm Your Arun,\na passionate Flutter developer\non a journey to build\nbeautiful,complex and functional ",
-//                     style: MyFonts.manrope(
-//                       fontSize: 45,
-//                       fontWeight: FontWeight.w400,
-//                       color: MyColors.lightGrey,
-//                     ),
-//                   )
-//                       .animate()
-//                       .fadeIn(delay: 1.seconds, duration: .60.seconds)
-//                       .slide(begin: const Offset(-0.3, 0)),
-//                   Padding(
-//                     padding: const EdgeInsets.only(top: 181),
-//                     child: AnimatedTextWidget(
-//                       textStyle: MyFonts.manrope(
-//                         fontSize: 47,
-//                         fontWeight: FontWeight.w400,
-//                         color: MyColors.evenDarkerGrey,
-//                       ),
-//                       texts: [
-//                         "android apps.",
-//                         "ios apps.",
-//                         "websites.",
-//                       ],
-//                     ),
-//                   ),
-//                 ],
-//               )
-//                   .animate()
-//                   .fadeIn(delay: 1.seconds, duration: .60.seconds)
-//                   .slide(begin: const Offset(-0.3, 0)),
-//             ),
-//             Align(
-//                 alignment: Alignment.topLeft,
-//                 child: Text(
-//                   "Empowering businesses to achieve their goals through innovative\nand user-centered digital solutions.",
-//                   style: MyFonts.manrope(
-//                     fontSize: 20,
-//                     fontWeight: FontWeight.w200,
-//                     color: MyColors.mediumGrey,
-//                   ),
-//                 )
-//                     .animate()
-//                     .visibility(delay: 1.seconds, duration: .80.seconds)),
-//             SizedBox(
-//               height: 20,
-//             ),
-//             Align(
-//               alignment: Alignment.centerLeft,
-//               child: SizedBox(
-//                   width: 200,
-//                   height: 40, // Set the desired width here
-//                   child: ElevatedButton(
-//                     style: ButtonStyle(
-//                       backgroundColor:
-//                           MaterialStateProperty.all(MyColors.lighterGrey),
-//                     ),
-//                     onPressed: () {},
-//                     child: Text('TEXT ME'),
-//                   ).animate().flipV(delay: 2.seconds, duration: .40.seconds)),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

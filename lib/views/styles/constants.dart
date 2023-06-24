@@ -12,7 +12,3 @@ class ScreenSize {
 }
 
 
-class AssetPath{
-  static const String images = 'assets/images';
-    static const String Bg = '$images/Rectangle.png';
-}

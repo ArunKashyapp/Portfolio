@@ -18,10 +18,11 @@ class Contact extends StatefulWidget {
 
 class _ContactState extends State<Contact> {
   final TextEditingController formcontroller = TextEditingController();
-  bool ishovered = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: Key('Contact'),
       child: Padding(
         padding: const EdgeInsets.only(left: 90, top: 40, right: 90),
         child: Column(
@@ -30,7 +31,7 @@ class _ContactState extends State<Contact> {
             Text(
               "Let's Connect",
               style: MyFonts.manrope(
-                  color: MyColors.lightGrey,
+                  color: MyColors.orange,
                   fontSize: 20,
                   fontWeight: FontWeight.w300),
             ),
@@ -48,9 +49,9 @@ class _ContactState extends State<Contact> {
                     suffix: TexButton(
                         title: 'Send',
                         onPressed: () {},
-                        icon:const  Icon(
+                        icon: const Icon(
                           Icons.play_arrow,
-                          color: MyColors.lightGrey,
+                          color: MyColors.orange,
                         )),
                     enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: MyColors.lightGrey)),
@@ -59,9 +60,9 @@ class _ContactState extends State<Contact> {
                       style: MyFonts.manrope(
                           fontSize: 10, color: MyColors.lightGrey),
                     ),
-                    focusedBorder:const OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: MyColors.white)),
-                    prefixIcon:const  Icon(
+                    prefixIcon: const Icon(
                       Icons.chat,
                       color: MyColors.lightGrey,
                     )),
@@ -73,11 +74,11 @@ class _ContactState extends State<Contact> {
             Text(
               "Social links",
               style: MyFonts.manrope(
-                  color: MyColors.white,
+                  color: MyColors.orange,
                   fontSize: 18,
                   fontWeight: FontWeight.w300),
             ),
-          const  SizedBox(
+            const SizedBox(
               height: 10,
             ),
             links(
@@ -92,7 +93,7 @@ class _ContactState extends State<Contact> {
                 Logo(
                   Logos.github,
                   size: 20,
-                  colorFilter:const  ColorFilter.linearToSrgbGamma(),
+                  colorFilter: const ColorFilter.linearToSrgbGamma(),
                 ),
                 'https://github.com/ArunKashyapp',
                 "Github",
@@ -105,7 +106,7 @@ class _ContactState extends State<Contact> {
                 'https://github.com/ArunKashyapp',
                 "Instagram",
                 'https://github.com/ArunKashyapp'),
-          const  SizedBox(
+            const SizedBox(
               height: 90,
             ),
             Row(
@@ -113,9 +114,9 @@ class _ContactState extends State<Contact> {
               children: [
                 Wrap(
                   children: [
-                   const Icon(
-                     Icons.copyright,
-                      color: MyColors.lightGrey,
+                    const Icon(
+                      Icons.copyright,
+                      color: MyColors.orange,
                       size: 17,
                     ),
                     Text(
@@ -170,6 +171,7 @@ Widget links(logo, url, isttext, sectext) {
             sectext,
           ],
           textStyle: MyFonts.manrope(
+              decoration: TextDecoration.underline,
               fontSize: 15,
               color: MyColors.lightGrey,
               fontWeight: FontWeight.w200))

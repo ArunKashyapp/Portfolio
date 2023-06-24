@@ -33,7 +33,7 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
   String _currentText = "";
   late Timer _timer;
 
-  _AnimatedTextWidgetState(this.texts, this.textStyle,this.onpressed);
+  _AnimatedTextWidgetState(this.texts, this.textStyle, this.onpressed);
 
   @override
   void initState() {
@@ -140,195 +140,15 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
 
 Widget getIcon(String value) {
   if (value == "android apps") {
-    return const Icon(Icons.android, color: MyColors.lighterGrey, size: 30);
+    return const Icon(Icons.android,
+        color: Color.fromARGB(255, 47, 200, 52), size: 30);
   } else if (value == "ios apps") {
-    return const Icon(Icons.apple, color: MyColors.lighterGrey, size: 30);
+    return const Icon(Icons.apple, color: MyColors.lightGrey, size: 30);
   } else if (value == "web apps") {
-    return const  Icon(Icons.desktop_windows_rounded,
-        color: MyColors.lighterGrey, size: 30);
+    return const Icon(Icons.desktop_windows_rounded,
+        color: Colors.blue, size: 30);
   } else {
-     return SizedBox.shrink(); // or return null;
+    return const SizedBox.shrink(); // or return null;
   }
 }
 
-// Import the Flutter Icons package
-
-// class TechList extends StatelessWidget {
-//   final List<TechItem> techs = [
-//     TechItem(name: 'Flutter', icon: Icons.access_alarm_sharp),
-//     TechItem(name: 'Figma', icon: Icons.access_alarm_sharp),
-//     TechItem(name: 'Firebase', icon: Icons.access_alarm_sharp),
-//     TechItem(name: 'SQL', icon: Icons.access_alarm_sharp),
-//     TechItem(name: 'Node.js', icon: Icons.access_alarm_sharp),
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       scrollDirection: Axis.horizontal,
-//       itemCount: techs.length,
-//       itemBuilder: (context, index) {
-//         return TechItemWidget(tech: techs[index]);
-//       },
-//     );
-//   }
-// }
-
-// class TechItem {
-//   final String name;
-//   final IconData icon;
-
-//   TechItem({required this.name, required this.icon});
-// }
-
-// class TechItemWidget extends StatefulWidget {
-//   final TechItem tech;
-
-//   TechItemWidget({required this.tech});
-
-//   @override
-//   _TechItemWidgetState createState() => _TechItemWidgetState();
-// }
-
-// class _TechItemWidgetState extends State<TechItemWidget> {
-//   bool isHovered = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: () {
-//         // Handle the tap gesture, navigate to the official website
-//         // You can use the `launch` package to open URLs in Flutter
-//         // Example: launch('https://flutter.dev');
-//       },
-//       onHover: (value) {
-//         setState(() {
-//           isHovered = value;
-//         });
-//       },
-//       child: AnimatedContainer(
-//         transform: Matrix4.identity()
-//           ..rotateX(isHovered ? 0.1 : 0) // Apply 3D rotation effect on hover
-//           ..rotateY(isHovered ? 0.1 : 0),
-//         duration: Duration(milliseconds: 300),
-//         margin: EdgeInsets.all(8.0),
-//         padding: EdgeInsets.all(12.0),
-//         decoration: BoxDecoration(
-//           color: isHovered ? Colors.blue : Colors.grey,
-//           borderRadius: BorderRadius.circular(8.0),
-//           boxShadow: [
-//             BoxShadow(
-//               color: Colors.black.withOpacity(0.3),
-//               blurRadius: 10.0,
-//               offset: Offset(0, 3),
-//             ),
-//           ],
-//         ),fdq
-//         child: Row(
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             Icon(
-//               widget.tech.icon,
-//               color: Colors.white,
-//             ),
-//             SizedBox(width: 8.0),
-//             Text(
-//               widget.tech.name,
-//               style: TextStyle(
-//                 color: Colors.white,
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-// class HoverAnimation extends StatefulWidget {
-//   final bool ishovered;
-//   final Widget YourWidget;
-//   HoverAnimation(
-//       {super.key, required this.YourWidget, required this.ishovered});
-
-//   @override
-//   State<HoverAnimation> createState() => _HoverAnimationState();
-// }
-
-// class _HoverAnimationState extends State<HoverAnimation> {
-//   late bool ishovered;
-//   late Widget YourWidget;
-//   @override
-//   Widget build(BuildContext context) {
-//     return MouseRegion(
-//       onEnter: (_) {
-//         setState(() {
-//           ishovered = true;
-//         });
-//       },
-//       onExit: (_) {
-//         setState(() {
-//           ishovered = false;
-//         });
-//       },
-//       child: YourWidget,
-//     );
-//   }
-// }
-
-// class HoverText extends StatefulWidget {
-//   final String text;
-//   final double size;
-//   final Color color;
-//   final FontWeight weight;
-
-//   const HoverText(
-//       {super.key,
-//       required this.text,
-//       required this.size,
-//       required this.color,
-//       required this.weight});
-//   @override
-//   _HoverTextState createState() => _HoverTextState(text, size, color, weight);
-// }
-
-// class _HoverTextState extends State<HoverText> {
-//   Offset _cursorPosition = Offset(0, 0);
-//   final String text;
-//   final double size;
-//   final Color color;
-//   final FontWeight weight;
-
-//   _HoverTextState(this.text, this.size, this.color, this.weight);
-
-//   void _updateCursorPosition(PointerEvent event) {
-//     setState(() {
-//       _cursorPosition = event.localPosition;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MouseRegion(
-//       onHover: (event) => _updateCursorPosition(event),
-//       child: Listener(
-//         onPointerMove: (event) => _updateCursorPosition(event),
-//         child: Text(
-//           text,
-//           style: TextStyle(
-//             color: color,
-//             fontSize: size,
-//             fontWeight: weight,
-//             shadows: [
-//               Shadow(
-//                 offset: Offset(_cursorPosition.dx / 10, _cursorPosition.dy / 5),
-//                 blurRadius: 2,
-//                 color: MyColors.lightGrey,
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

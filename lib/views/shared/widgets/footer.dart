@@ -13,7 +13,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: MyColors.black.withOpacity(0.7),
-      height: 400,
+      height: 450,
       width: double.infinity,
       child: Stack(
         children: [

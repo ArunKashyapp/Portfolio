@@ -12,4 +12,6 @@ class MyColors {
   static const Color evenDarkerGrey = Color(0xFF494949);
   static const Color veryDarkGrey = Color(0xFF696969);
   static const Color veryLightGrey = Color(0xFFECECEC);
+  static const Color project = Color(0xFFF3F3F3);
+  static const Color orange = Color(0xFFFEB5939);
 }

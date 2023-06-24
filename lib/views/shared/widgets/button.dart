@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/colors.dart';
@@ -9,7 +8,7 @@ class TexButton extends StatefulWidget {
   final Function onPressed;
   final Icon icon;
 
-  TexButton({
+const TexButton({
     Key? key,
     required this.title,
     required this.onPressed,
@@ -44,7 +43,7 @@ class _TexButtonState extends State<TexButton> {
           });
         },
         child: Container(
-          margin: EdgeInsets.all(2),
+          margin:const  EdgeInsets.all(2),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
           ),
