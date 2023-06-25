@@ -16,7 +16,7 @@ class _ProjectState extends State<Project> {
   Widget build(BuildContext context) {
     return Container(
       width: ScreenSize.screenWidth,
-      height: ScreenSize.screenHeight * 0.10 + 1500,
+      height: ScreenSize.screenHeight * 0.10 + 1200,
       color: MyColors.black.withRed(1),
       child: Column(
         children: [
@@ -66,80 +66,81 @@ class _ProjectState extends State<Project> {
 
 Widget Projects(ProjectName, Heading, SubHeading, moreText, url) {
   return Padding(
-    padding: const EdgeInsets.only(left: 160, top: 100, right: 160),
+    padding: EdgeInsets.symmetric(horizontal: 90),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              ProjectName,
-              style: MyFonts.manrope(
-                  fontSize: 18,
-                  color: MyColors.orange,
-                  fontWeight: FontWeight.w500),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            Text(
-              Heading,
-              overflow: TextOverflow.ellipsis,
-              style: MyFonts.manrope(
-                  fontSize: 18,
-                  color: MyColors.lightGrey,
-                  fontWeight: FontWeight.w400),
-            ),
-            const SizedBox(
-              height: 33,
-            ),
-            Text(
-              SubHeading,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 4,
-              style: MyFonts.manrope(
-                  fontSize: 14,
-                  color: MyColors.lighterGrey,
-                  fontWeight: FontWeight.w400),
-            ),
-            const SizedBox(
-              height: 134,
-            ),
-            GestureDetector(
-              onTap: () async {
-                if (await canLaunch(url)) {
-                  await launch(url);
-                } else {
-                  throw 'Could not launch $url';
-                }
-              },
-              child: Text(
-                moreText,
-                style: MyFonts.manrope(
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 90),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  ProjectName,
+                  style: MyFonts.manrope(
                     fontSize: 18,
                     color: MyColors.orange,
-                    fontWeight: FontWeight.w500),
-              ),
-            )
-          ],
-        ),
-        const SizedBox(
-          width: 200,
-        ),
-        Flexible(
-          flex: 1,
-          child: AspectRatio(
-            aspectRatio:
-                2, // Adjust this value as per your image's aspect ratio
-            child: Image.asset(
-              "assets/images/chess.jpg",
-              fit: BoxFit.fitHeight,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  Heading,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: MyFonts.manrope(
+                    fontSize: 18,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  SubHeading,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: MyFonts.manrope(
+                    fontSize: 14,
+                    color: MyColors.lightGrey,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const SizedBox(height: 100),
+                GestureDetector(
+                  onTap: () async {
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    } else {
+                      throw 'Could not launch $url';
+                    }
+                  },
+                  child: Text(
+                    moreText,
+                    style: MyFonts.manrope(
+                      fontSize: 18,
+                      color: MyColors.orange,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
+
+        // Flexible(
+        //   flex: 1,
+        //   child: AspectRatio(
+        //     aspectRatio: 2,
+        //     child: Image.asset(
+        //       "assets/images/chess.jpg",
+        //       fit: BoxFit.fitHeight,
+        //     ),
+        //   ),
+        // ),
       ],
     ),
   );

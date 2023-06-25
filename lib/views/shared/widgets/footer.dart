@@ -29,6 +29,7 @@ class Footer extends StatelessWidget {
             ),
           ),
           Contact(),
+          
         ],
       ),
     );

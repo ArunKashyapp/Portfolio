@@ -14,7 +14,8 @@ class Collection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
       desktop: const Desktop(),
-      mobile: mobile(),
+      mobile: Desktop(),
+      tablet: const Desktop(),
     );
   }
 }
@@ -90,9 +91,5 @@ class _DesktopState extends State<Desktop> {
 }
 
 Widget mobile() {
-  return const Scaffold();
-}
-
-Widget tablet() {
   return const Scaffold();
 }

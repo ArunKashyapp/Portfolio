@@ -107,31 +107,62 @@ class _ContactState extends State<Contact> {
                 "Instagram",
                 'https://github.com/ArunKashyapp'),
             const SizedBox(
-              height: 90,
+              height: 20,
+            ),
+            Text(
+              "Drop me interesting mail at--",
+              style: MyFonts.manrope(
+                  fontSize: 18,
+                  color: MyColors.orange,
+                  fontWeight: FontWeight.w300),
+            ),
+            GestureDetector(
+              onTap: () async {
+                final Uri emailLaunchUri = Uri(
+                  scheme: 'mailto',
+                  path: 'arunbhagat132@gmail.com',
+                );
+                final String emailUri = emailLaunchUri.toString();
+
+                if (await canLaunch(emailUri)) {
+                  await launch(emailUri);
+                } else {
+                  throw 'Could not launch email';
+                }
+              },
+              child: Text('arunbhagat132@gmail.com',
+                  style: MyFonts.manrope(
+                      decoration: TextDecoration.underline,
+                      fontSize: 15,
+                      color: MyColors.lightGrey,
+                      fontWeight: FontWeight.w200)),
+            ),
+            const SizedBox(
+              height: 60,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Wrap(
                   children: [
-                    const Icon(
-                      Icons.copyright,
-                      color: MyColors.orange,
-                      size: 17,
-                    ),
                     Text(
-                      "2023 ArunKashyap. All Rights Reserved.",
+                      "Coded by Arun with",
                       style: MyFonts.manrope(
                           fontSize: 12,
                           color: MyColors.lighterGrey,
                           fontWeight: FontWeight.w200),
+                    ),
+                    const Icon(
+                      Icons.favorite,
+                      color: MyColors.orange,
+                      size: 17,
                     ),
                   ],
                 ),
                 Wrap(
                   children: [
                     Text(
-                      "Made in Flutter",
+                      "In Flutter",
                       style: MyFonts.manrope(
                           fontSize: 12,
                           color: MyColors.lighterGrey,
