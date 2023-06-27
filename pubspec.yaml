@@ -55,8 +55,7 @@ dev_dependencies:
   flutter_screenutil: ^5.8.4
   google_nav_bar: ^5.0.6
   scrollable_positioned_list: ^0.3.8
-  dependencies:
-  hovering: ^2.0.0
+  
 
   
   

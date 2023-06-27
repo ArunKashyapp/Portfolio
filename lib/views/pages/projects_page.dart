@@ -3,6 +3,7 @@ import 'package:portfolio/views/styles/colors.dart';
 import 'package:portfolio/views/styles/constants.dart';
 import 'package:portfolio/views/styles/fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class Project extends StatefulWidget {
   const Project({super.key});
@@ -12,6 +13,74 @@ class Project extends StatefulWidget {
 }
 
 class _ProjectState extends State<Project> {
+  @override
+  Widget build(BuildContext context) {
+    return ScreenTypeLayout(mobile: MobileProjects(),desktop: DesktopProjects());
+  }
+}
+
+class DesktopProjects extends StatelessWidget {
+  const DesktopProjects({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: ScreenSize.screenWidth,
+      height: ScreenSize.screenHeight * 0.10 + 1200,
+      color: MyColors.black.withRed(1),
+      child: Column(
+        children: [
+          Projects(
+              "03 / Chess",
+              "Unleash Your Strategic Skills with Flutter Chess Game",
+              "Immerse yourself in the world of chess with this\ncaptivating and visually stunning Flutter-based chess game.\nTest your tactical prowess, challenge friends, and experience the thrill of victory!",
+              "Give it a try↗",
+              'https://chess-eb267.web.app/#/'),
+          const SizedBox(
+            height: 80,
+          ),
+          const Divider(
+            color: MyColors.orange,
+            thickness: 1,
+            height: 5,
+            indent: 170,
+            endIndent: 170,
+          ),
+          Projects(
+              "03 / Chess",
+              "Unleash Your Strategic Skills with Flutter Chess Game",
+              "Immerse yourself in the world of chess with this\ncaptivating and visually stunning Flutter-based chess game.\nTest your tactical prowess, challenge friends, and experience the thrill of victory!",
+              "Give it a try↗",
+              'https://chess-eb267.web.app/#/'),
+          const SizedBox(
+            height: 80,
+          ),
+          const Divider(
+            color: MyColors.orange,
+            thickness: 1,
+            height: 5,
+            indent: 170,
+            endIndent: 170,
+          ),
+          Projects(
+              "03 / Chess",
+              "Unleash Your Strategic Skills with Flutter Chess Game",
+              "Immerse yourself in the world of chess with this\ncaptivating and visually stunning Flutter-based chess game.\nTest your tactical prowess, challenge friends, and experience the thrill of victory!",
+              "Give it a try↗",
+              'https://chess-eb267.web.app/#/'),
+        ],
+      ),
+    );
+  }
+}
+
+class MobileProjects extends StatelessWidget {
+  const MobileProjects({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(

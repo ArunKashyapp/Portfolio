@@ -4,32 +4,18 @@ import 'package:portfolio/views/pages/projects_page.dart';
 import 'package:portfolio/views/pages/tech_stack.dart';
 import 'package:portfolio/views/shared/widgets/footer.dart';
 import 'package:portfolio/views/shared/widgets/header.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-class Collection extends StatelessWidget {
-  const Collection({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      desktop: const Desktop(),
-      mobile: Desktop(),
-      tablet: const Desktop(),
-    );
-  }
-}
-
-class Desktop extends StatefulWidget {
-  const Desktop({
+class Collection extends StatefulWidget {
+  const Collection({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<Desktop> createState() => _DesktopState();
+  State<Collection> createState() => _CollectionState();
 }
 
-class _DesktopState extends State<Desktop> {
+class _CollectionState extends State<Collection> {
   final itemController = ItemScrollController();
 
   @override
@@ -58,31 +44,36 @@ class _DesktopState extends State<Desktop> {
                     return Home_Page(
                       onTabSelected: (index) {
                         scollToindex(
+                            null); // Pass the index to the scollToindex method
+                      },
+                    );
+                  // case 1:
+                  //   return const TechStack();
+                  // case 2:
+                  //   return const Project();
+                  // case 3:
+                  //   return const Footer();
+                  default:
+                    return Home_Page(
+                      onTabSelected: (index) {
+                        scollToindex(
                             index); // Pass the index to the scollToindex method
                       },
                     );
-                  case 1:
-                    return const TechStack();
-                  case 2:
-                    return const Project();
-                  case 3:
-                    return const Footer();
-                  default:
-                    return const SizedBox.shrink();
                 }
               },
             ),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Header(
-                onTabSelected: (index) {
-                  scollToindex(
-                      index); // Pass the index to the scollToindex method
-                },
-              ),
-            ),
+            // Positioned(
+            //   top: 0,
+            //   left: 0,
+            //   right: 0,
+            //   child: Header(
+            //     onTabSelected: (index) {
+            //       scollToindex(
+            //           index); // Pass the index to the scollToindex method
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),

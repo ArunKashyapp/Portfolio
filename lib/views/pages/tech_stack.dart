@@ -5,6 +5,7 @@ import 'package:portfolio/views/styles/constants.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:portfolio/views/styles/fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../animations/animations.dart';
 
@@ -18,13 +19,195 @@ class TechStack extends StatefulWidget {
 class _TechStackState extends State<TechStack> {
   @override
   Widget build(BuildContext context) {
+    return ScreenTypeLayout(
+      mobile: MobileTechStack(),
+      desktop:  DesktopTechStack(),
+    );
+  }
+}
+
+class DesktopTechStack extends StatelessWidget {
+  const DesktopTechStack({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
         margin: const EdgeInsets.only(
           top: 2,
         ),
+        color: Colors.black87,
         width: double.infinity,
         height: ScreenSize.screenHeight * 0.5 + 500,
-        color: Colors.black,
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(
+        //   begin: Alignment.center,
+        //   end: Alignment.bottomCenter,
+        //   colors: [
+        //     MyColors.black,
+        //     Colors.black87,
+        //   ],
+        // )),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Development Stack",
+              textAlign: TextAlign.center,
+              style: MyFonts.manrope(
+                  fontSize: 20,
+                  color: MyColors.orange,
+                  fontWeight: FontWeight.w200),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  clip(
+                      "Flutter",
+                      [
+                        "A Cross-platform UI Toolkit for Building Beautiful, Native-Performance Apps for iOS, Android, Web, and Desktop",
+                        'Advanced level'
+                      ],
+                      "https://flutter.dev",
+                      logo: Logo(Logos.flutter)),
+                  clip(
+                      "Firebase",
+                      [
+                        "A Comprehensive Platform for Building Mobile and Web Applications with Real-time Data, Authentication, and Cloud Services",
+                        "Intermediate level"
+                      ],
+                      "https://firebase.google.com",
+                      logo: Logo(
+                        Logos.firebase,
+                      )),
+                  clip(
+                      "MySQl",
+                      [
+                        "An Open-Source Relational Database Management System for Storing and Managing Structured Data",
+                        "Intermediate level"
+                      ],
+                      "https://www.mysql.com",
+                      logo: Image.asset('assets/images/mysql.png')),
+                  clip(
+                      "Dart",
+                      [
+                        "A Powerful and Flexible Programming Language for Building Apps, Websites, and Server-Side Applications",
+                        "Intermediate level"
+                      ],
+                      "https://dart.dev",
+                      logo: Image.asset(
+                        'assets/images/Dart.png',
+                        fit: BoxFit.fill,
+                      )),
+                  clip(
+                      "Figma",
+                      [
+                        "Simplify your design workflow with powerful collaboration and prototyping tools. Create stunning designs for web and mobile effortlessly.",
+                        "Intermediate level"
+                      ],
+                      "https://www.figma.com",
+                      logo: Logo(Logos.figma)),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                clip(
+                    "Github",
+                    [
+                      "GitHub is a leading platform for version control and code collaboration.",
+                      "Begineer"
+                    ],
+                    "https://github.com/ArunKashyapp",
+                    logo: Logo(
+                      Logos.github,
+                      colorFilter: const ColorFilter.linearToSrgbGamma(),
+                    )),
+                clip(
+                    "NodeJS",
+                    [
+                      "Revolutionizing Server-Side Development with JavaScript",
+                      "Begineer"
+                    ],
+                    "https://www.nodejs.org",
+                    logo: Logo(
+                      Logos.node_js,
+                    )),
+              ],
+            ),
+            Text(
+              "Programming Languages",
+              textAlign: TextAlign.center,
+              style: MyFonts.manrope(
+                  fontSize: 20,
+                  color: MyColors.orange,
+                  fontWeight: FontWeight.w200),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  clip2("Dart", "Intermediate level", "https://dart.dev",
+                      logo: Image.asset(
+                        'assets/images/Dart.png',
+                        fit: BoxFit.fill,
+                      )),
+                  clip2("Java", "Intermediate level", "https://www.java.org",
+                      logo: Logo(
+                        Logos.java,
+                      )),
+                  clip2(
+                      "Python", "Intermediate level", "https://www.python.org",
+                      logo: Logo(
+                        Logos.python,
+                      )),
+                  clip2("C/C++", "Intermediate level", "https://www.java.org",
+                      logo: Logo(
+                        Logos.cplusplus,
+                      )),
+                ],
+              ),
+            )
+          ],
+        ));
+  }
+}
+class MobileTechStack extends StatelessWidget {
+  const MobileTechStack({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.only(
+          top: 2,
+        ),
+        color: Colors.black87,
+        width: double.infinity,
+        height: ScreenSize.screenHeight * 0.5 + 500,
+        // decoration: BoxDecoration(
+        //     gradient: LinearGradient(
+        //   begin: Alignment.center,
+        //   end: Alignment.bottomCenter,
+        //   colors: [
+        //     MyColors.black,
+        //     Colors.black87,
+        //   ],
+        // )),
         child: Column(
           children: [
             const SizedBox(
@@ -172,10 +355,9 @@ Widget clip(heading, subheading, url, {Widget? logo}) {
         const SizedBox(height: 10),
         if (logo != null) ...[
           SizedBox(
-           
             height: 50,
             width: 50,
-             child: logo,
+            child: logo,
           ),
           const SizedBox(height: 5),
         ],
@@ -229,10 +411,9 @@ Widget clip2(heading, subheading, url, {Widget? logo}) {
         const SizedBox(height: 10),
         if (logo != null) ...[
           SizedBox(
-           
             height: 50,
             width: 50,
-             child: logo,
+            child: logo,
           ),
           const SizedBox(height: 5),
         ],

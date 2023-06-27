@@ -3,6 +3,7 @@ import 'package:portfolio/views/pages/collection.dart';
 import 'package:portfolio/views/styles/colors.dart';
 
 void main(List<String> args) {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const PortfolioApp());
 }
 
@@ -14,10 +15,10 @@ class PortfolioApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            elevatedButtonTheme:  ElevatedButtonThemeData(
+            elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                 textStyle: MaterialStateProperty.all(
-              const    TextStyle(color: MyColors.black),
+                  const TextStyle(color: MyColors.black),
                 ),
                 minimumSize: MaterialStateProperty.all(const Size(200, 50)),
                 overlayColor: const MaterialStatePropertyAll(Colors.deepOrange),

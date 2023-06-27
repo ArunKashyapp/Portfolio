@@ -22,161 +22,186 @@ class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      key: Key('Contact'),
       child: Padding(
-        padding: const EdgeInsets.only(left: 90, top: 40, right: 90),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Let's Connect",
-              style: MyFonts.manrope(
-                  color: MyColors.orange,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              child: TextFormField(
-                onTapOutside: (event) {
-                  formcontroller.clear();
-                  FocusScope.of(context).unfocus();
-                },
-                controller: formcontroller,
-                decoration: InputDecoration(
-                    suffix: TexButton(
-                        title: 'Send',
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.play_arrow,
-                          color: MyColors.orange,
-                        )),
-                    enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: MyColors.lightGrey)),
-                    label: Text(
-                      "Send a message",
-                      style: MyFonts.manrope(
-                          fontSize: 10, color: MyColors.lightGrey),
-                    ),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: MyColors.white)),
-                    prefixIcon: const Icon(
-                      Icons.chat,
-                      color: MyColors.lightGrey,
-                    )),
-                cursorColor: MyColors.lightGrey,
-                maxLength: 200,
-                style: MyFonts.manrope(fontSize: 15, color: MyColors.white),
+        padding:
+            const EdgeInsets.only(left: 90, top: 40, right: 90, bottom: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Let's Connect",
+                style: MyFonts.manrope(
+                    color: MyColors.orange,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w300),
               ),
-            ),
-            Text(
-              "Social links",
-              style: MyFonts.manrope(
-                  color: MyColors.orange,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w300),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            links(
-                Logo(
-                  Logos.linkedin,
-                  size: 20,
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                child: TextFormField(
+                  onTapOutside: (event) {
+                    formcontroller.clear();
+                    FocusScope.of(context).unfocus();
+                  },
+                  controller: formcontroller,
+                  decoration: InputDecoration(
+                      suffix: TexButton(
+                          title: 'Send',
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.play_arrow,
+                            color: MyColors.orange,
+                          )),
+                      enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: MyColors.lightGrey)),
+                      label: Text(
+                        "Send a message",
+                        style: MyFonts.manrope(
+                            fontSize: 10, color: MyColors.lightGrey),
+                      ),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: MyColors.white)),
+                      prefixIcon: const Icon(
+                        Icons.chat,
+                        color: MyColors.lightGrey,
+                      )),
+                  cursorColor: MyColors.lightGrey,
+                  maxLength: 200,
+                  style: MyFonts.manrope(fontSize: 15, color: MyColors.white),
                 ),
-                'https://www.linkedin.com/in/arunkashyapp/',
-                "Linkedin",
-                'https://www.linkedin.com/in/arunkashyapp/'),
-            links(
-                Logo(
-                  Logos.github,
-                  size: 20,
-                  colorFilter: const ColorFilter.linearToSrgbGamma(),
+              ),
+              Container(
+                height: 50,
+                width: 500,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      MyColors.orange,
+                      Colors.transparent,
+                    ],
+                  ),
                 ),
-                'https://github.com/ArunKashyapp',
-                "Github",
-                'https://github.com/ArunKashyapp'),
-            links(
-                Logo(
-                  Logos.instagram,
-                  size: 20,
-                ),
-                'https://github.com/ArunKashyapp',
-                "Instagram",
-                'https://github.com/ArunKashyapp'),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              "Drop me interesting mail at--",
-              style: MyFonts.manrope(
-                  fontSize: 18,
-                  color: MyColors.orange,
-                  fontWeight: FontWeight.w300),
-            ),
-            GestureDetector(
-              onTap: () async {
-                final Uri emailLaunchUri = Uri(
-                  scheme: 'mailto',
-                  path: 'arunbhagat132@gmail.com',
-                );
-                final String emailUri = emailLaunchUri.toString();
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "100% chance I read it",
+                      style: MyFonts.manrope(
+                        fontSize: 15,
+                        color: MyColors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () async {
+                        final Uri emailLaunchUri = Uri(
+                          scheme: 'mailto',
+                          path: 'arunbhagat132@gmail.com',
+                        );
+                        final String emailUri = emailLaunchUri.toString();
 
-                if (await canLaunch(emailUri)) {
-                  await launch(emailUri);
-                } else {
-                  throw 'Could not launch email';
-                }
-              },
-              child: Text('arunbhagat132@gmail.com',
-                  style: MyFonts.manrope(
-                      decoration: TextDecoration.underline,
-                      fontSize: 15,
-                      color: MyColors.lightGrey,
-                      fontWeight: FontWeight.w200)),
-            ),
-            const SizedBox(
-              height: 60,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Wrap(
-                  children: [
-                    Text(
-                      "Coded by Arun with",
-                      style: MyFonts.manrope(
+                        if (await canLaunch(emailUri)) {
+                          await launch(emailUri);
+                        } else {
+                          throw 'Could not launch email';
+                        }
+                      },
+                      child: Text(
+                        'arunbhagat132@gmail.com',
+                        style: MyFonts.manrope(
                           fontSize: 12,
-                          color: MyColors.lighterGrey,
-                          fontWeight: FontWeight.w200),
-                    ),
-                    const Icon(
-                      Icons.favorite,
-                      color: MyColors.orange,
-                      size: 17,
+                          color: MyColors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                Wrap(
-                  children: [
-                    Text(
-                      "In Flutter",
-                      style: MyFonts.manrope(
-                          fontSize: 12,
-                          color: MyColors.lighterGrey,
-                          fontWeight: FontWeight.w200),
-                    ),
-                    Logo(
-                      Logos.flutter,
-                      size: 17,
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Text(
+                "Social links",
+                style: MyFonts.manrope(
+                    color: MyColors.orange,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              links(
+                  Logo(
+                    Logos.linkedin,
+                    size: 20,
+                  ),
+                  'https://www.linkedin.com/in/arunkashyapp/',
+                  "Linkedin",
+                  'https://www.linkedin.com/in/arunkashyapp/'),
+              links(
+                  Logo(
+                    Logos.github,
+                    size: 20,
+                    colorFilter: const ColorFilter.linearToSrgbGamma(),
+                  ),
+                  'https://github.com/ArunKashyapp',
+                  "Github",
+                  'https://github.com/ArunKashyapp'),
+              links(
+                  Logo(
+                    Logos.instagram,
+                    size: 20,
+                  ),
+                  'https://github.com/ArunKashyapp',
+                  "Instagram",
+                  'https://github.com/ArunKashyapp'),
+              const SizedBox(
+                height: 40,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Wrap(
+                    children: [
+                      Text(
+                        "Coded by Arun with",
+                        style: MyFonts.manrope(
+                            fontSize: 12,
+                            color: MyColors.lighterGrey,
+                            fontWeight: FontWeight.w200),
+                      ),
+                      const Icon(
+                        Icons.favorite,
+                        color: MyColors.orange,
+                        size: 17,
+                      ),
+                    ],
+                  ),
+                  Wrap(
+                    children: [
+                      Text(
+                        "In Flutter",
+                        style: MyFonts.manrope(
+                            fontSize: 12,
+                            color: MyColors.lighterGrey,
+                            fontWeight: FontWeight.w200),
+                      ),
+                      Logo(
+                        Logos.flutter,
+                        size: 17,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

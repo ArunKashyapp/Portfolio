@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,9 +12,7 @@ class MyFonts {
     TextDecoration? decoration,
     TextDecorationStyle? decorationStyle,
     double? decorationThickness,
-  
-    // Corrected property name
-
+    Color? decorationColor, // Add decorationColor property
   }) {
     return GoogleFonts.manrope(
       fontSize: fontSize,
@@ -28,41 +24,6 @@ class MyFonts {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
-     
-     // Corrected property name
-    );
+    ).copyWith(decorationColor: decorationColor); // Apply the decorationColor
   }
 }
-// class MyFonts2 {
-//   static TextStyle inter({
-//     required double fontSize,
-//     FontWeight? fontWeight,
-//     required Color color,
-//     FontStyle? fontStyle,
-//     double? letterSpacing,
-//     double? wordSpacing,
-//     TextDecoration? decoration,
-//     TextDecorationStyle? decorationStyle,
-//     double? decorationThickness,
-  
-//     // Corrected property name
-
-//   }) {
-//     return GoogleFonts.inter(
-//       fontSize: fontSize,
-//       fontWeight: fontWeight,
-//       color: color,
-//       fontStyle: fontStyle,
-//       letterSpacing: letterSpacing,
-//       wordSpacing: wordSpacing,
-//       decoration: decoration,
-//       decorationStyle: decorationStyle,
-//       decorationThickness: decorationThickness,
-     
-//      // Corrected property name
-//     );
-//   }
-// }
-
-
-
